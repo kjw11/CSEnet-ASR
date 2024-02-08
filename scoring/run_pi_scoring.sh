@@ -28,15 +28,15 @@ progress() {
 }
 
 for mode in "2mix" "3mix"; do
-	echo "Start $mode"
+    echo "Start $mode"
     decoding_path=$decode_root/${setname}_clean_${mode}
-	out_dir=$decode_root/pi_scoring/${setname}_clean_${mode}
+    out_dir=$decode_root/pi_scoring/${setname}_clean_${mode}
        
-	log "Output dir: ${out_dir}"
+    log "Output dir: ${out_dir}"
     
     # 1: prepare output path
     mkdir -p $out_dir
-	cp $0 $out_dir
+    cp $0 $out_dir
     cp $decoding_path/score_wer/ref.trn $out_dir/ref_utt.trn
     cp $decoding_path/score_wer/hyp.trn $out_dir/hyp.trn
     ref_utt=$out_dir/ref_utt.trn
@@ -45,8 +45,8 @@ for mode in "2mix" "3mix"; do
     rm -rf $out_dir/tmp
     rm -f $out_dir/{best_ref.trn,best_hyp.trn}
     
-    # 2: spliting ref and hyp
-	log "Splitting TRN."
+    # 2: splitting ref and hyp
+    log "Splitting TRN."
     python3 search_best_permutation.py \
     		--ref_utt $ref_utt \
     		--hyp $hyp \
@@ -73,15 +73,15 @@ for mode in "2mix" "3mix"; do
     		-h $out_dir/best_hyp.trn trn \
     		-i rm -o all stdout > $out_dir/result_permu.txt
 
-	head -n 20 $out_dir/result_permu.txt
+    head -n 20 $out_dir/result_permu.txt
 
-	# 4: Subscoring: subset utts into groups of different overlap rate
+    # 4: Subscoring: subset utts into groups of different overlap rate
     # out_dir:
     #  |- ovlp_subscore:
     #         |- ref_0.20.trn
     #         |- ref_0.50.trn
     #             ...
-	log "Subset ${setname}_clean_${mode} into ovlp group {0.20, 0.50, 1.00}."
+    log "Subset ${setname}_clean_${mode} into ovlp group {0.20, 0.50, 1.00}."
     mkdir -p $out_dir/ovlp_subscore
     python subset_by_ovlp_rate.py \
             --utt2rate files/librispeechmix/${setname}_clean_$mode/utt2ovlp_rate \
