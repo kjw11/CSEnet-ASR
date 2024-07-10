@@ -2,7 +2,7 @@
 
 <em> International Conference on Acoustics, Speech, and Signal Processing (ICASSP), 2024</em>
 
-[PDF Paper](https://arxiv.org/pdf/2401.04152v1.pdf) | [HTML Paper](https://arxiv.org/html/2401.04152v1) | [Citation](#citation)
+[Paper Poster](assets/poster.pdf) | [PDF Paper](https://arxiv.org/pdf/2401.04152v1.pdf) | [HTML Paper](https://arxiv.org/html/2401.04152v1) | [Citation](#citation)
 
 <img src="assets/img.png" width=100%>
  
