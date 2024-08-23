@@ -8,6 +8,8 @@
  
 This repository contains the core implementation of the <em>Cross-Speakre Encoding (CSE)</em> and <em>CSE-SOT </em> network. 
 
+**<font color=red>News</font>**: [Paper Poster](assets/poster.pdf) uploaded!
+
 
 ## Requirments
 - ESPnet and its required dependencies
